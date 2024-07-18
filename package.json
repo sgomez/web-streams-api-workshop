@@ -1,14 +1,19 @@
 {
   "name": "web-streams-api",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
+    "dev": "vite",
+    "lint": "eslint --fix",
     "preview": "vite preview"
   },
+  "prettier": "@vercel/style-guide/prettier",
   "devDependencies": {
+    "@vercel/style-guide": "^6.0.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
   }
