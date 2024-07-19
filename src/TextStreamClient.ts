@@ -1,6 +1,6 @@
 import { type ReadableStream } from 'node:stream/web';
-import { MessageProcessor } from './MessageProcessor';
-import { TextDecoderStream } from 'stream/web';
+import { TextDecoderStream } from 'node:stream/web';
+import { type MessageProcessor } from './MessageProcessor';
 
 export class TextStreamClient {
   constructor(private readonly messageProcessor: MessageProcessor) {}

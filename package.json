@@ -4,12 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "eslint --fix",
+    "lint": "eslint --fix src/ tests/",
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui"
   },
   "prettier": "@vercel/style-guide/prettier",
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
   "devDependencies": {
     "@types/node": "^18.0.0",
     "@vercel/style-guide": "^6.0.0",
@@ -20,8 +23,5 @@
     "typescript": "^5.2.2",
     "vite": "^5.3.4",
     "vitest": "^2.0.3"
-  },
-  "dependencies": {
-    "zod": "^3.23.8"
   }
 }

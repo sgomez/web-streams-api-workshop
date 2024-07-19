@@ -1,5 +1,5 @@
 import { type ReadableStream } from 'node:stream/web';
-import { MessageProcessor } from './MessageProcessor';
+import { type MessageProcessor } from './MessageProcessor';
 
 export class RawStreamClient {
   constructor(private readonly messageProcessor: MessageProcessor) {}

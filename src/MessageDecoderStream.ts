@@ -1,6 +1,5 @@
 import { TransformStream } from 'node:stream/web';
-
-import { Message, MessageSchema } from './Message';
+import { type Message, MessageSchema } from './Message';
 
 export class MessageDecoderStream extends TransformStream<string, Message> {
   constructor() {

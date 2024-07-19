@@ -1,7 +1,7 @@
 import { TransformStream } from 'node:stream/web';
 
 export class TimeoutTransformer<T = unknown> extends TransformStream<T, T> {
-  constructor(timeoutInMs: number = 30_000) {
+  constructor(timeoutInMs = 30_000) {
     let controllerRef: TransformStreamDefaultController;
     let timeoutId: NodeJS.Timeout | undefined;
 
