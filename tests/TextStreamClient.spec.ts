@@ -8,7 +8,7 @@ interface LocalContext extends TestContext {
   messageProcessor: Mocked<MessageProcessor>;
 }
 
-describe.skip('process text messages from stream', () => {
+describe('process text messages from stream', () => {
   beforeEach<LocalContext>((context) => {
     context.messageProcessor = {
       processRaw: vi.fn(),

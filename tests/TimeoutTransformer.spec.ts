@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { TimeoutTransformer } from '../src/TimeoutTransformer';
 import { delay } from 'msw';
 
-describe.skip('filter messages checking heartbeat', () => {
+describe('filter messages checking heartbeat', () => {
   it('should iterate until the end of the stream', async () => {
     // Arrange
     const stream = new ReadableStream({
@@ -36,7 +36,7 @@ describe.skip('filter messages checking heartbeat', () => {
         await delay(50);
         controller.enqueue('chunk-1');
 
-        await delay(15000);
+        await delay(101);
         controller.enqueue('chunk-2');
 
         controller.close();

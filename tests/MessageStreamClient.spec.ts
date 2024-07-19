@@ -9,7 +9,7 @@ interface LocalContext extends TestContext {
   messageProcessor: Mocked<MessageProcessor>;
 }
 
-describe.skip('process formatted messages from stream', () => {
+describe('process formatted messages from stream', () => {
   beforeEach<LocalContext>((context) => {
     context.messageProcessor = {
       processRaw: vi.fn(),
@@ -18,7 +18,7 @@ describe.skip('process formatted messages from stream', () => {
     };
   });
 
-  it.skip<LocalContext>('should read a message from a stream', async ({
+  it<LocalContext>('should read a message from a stream', async ({
     messageProcessor,
     server,
   }) => {
@@ -55,7 +55,7 @@ describe.skip('process formatted messages from stream', () => {
     });
   });
 
-  it.skip<LocalContext>('should process several messages', async ({
+  it<LocalContext>('should process several messages', async ({
     server,
     messageProcessor,
   }) => {
@@ -100,7 +100,7 @@ describe.skip('process formatted messages from stream', () => {
     });
   });
 
-  it.skip<LocalContext>('should handle timeouts', async ({
+  it<LocalContext>('should handle timeouts', async ({
     messageProcessor,
     server,
   }) => {

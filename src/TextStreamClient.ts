@@ -22,7 +22,7 @@ export class TextStreamClient {
       throw new Error('Stream error');
     }
 
-    const stream = readableStream;
+    const stream = readableStream.pipeThrough(new TextDecoderStream());
 
     for await (const message of stream) {
       await this.messageProcessor.processString(message);

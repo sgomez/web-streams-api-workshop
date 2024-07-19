@@ -1,6 +1,9 @@
 import { type ReadableStream } from 'node:stream/web';
 import { MessageProcessor } from './MessageProcessor';
 import { TextDecoderStream } from 'stream/web';
+import { MessageDecoderStream } from './MessageDecoderStream';
+import { LineBufferTransformer } from './LineBufferTransformer';
+import { TimeoutTransformer } from './TimeoutTransformer';
 
 export class MessageStreamClient {
   constructor(private readonly messageProcessor: MessageProcessor) {}
@@ -25,7 +28,11 @@ export class MessageStreamClient {
       throw new Error('Stream error');
     }
 
-    const stream = readableStream.pipeThrough(new TextDecoderStream());
+    const stream = readableStream
+      .pipeThrough(new TimeoutTransformer(100))
+      .pipeThrough(new TextDecoderStream())
+      .pipeThrough(new LineBufferTransformer())
+      .pipeThrough(new MessageDecoderStream());
 
     try {
       for await (const message of stream) {

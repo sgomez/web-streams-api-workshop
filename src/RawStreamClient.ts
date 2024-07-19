@@ -24,6 +24,7 @@ export class RawStreamClient {
     const stream = readableStream;
 
     for await (const message of stream) {
+      await this.messageProcessor.processRaw(message);
     }
   }
 }
